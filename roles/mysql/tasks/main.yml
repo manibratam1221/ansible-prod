@@ -31,3 +31,20 @@
     host_all: yes
     state: present
   become: true
+
+- name: Create MySQL root credentials file
+  template:
+    src: root-my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    group: root
+    mode: '0600'
+  become: true
+
+- name: Confirm root can log in with new password
+  mysql_user:
+    name: root
+    login_user: root
+    login_password: "{{ vault_mysql_root_password }}"
+    state: present
+  become: true
