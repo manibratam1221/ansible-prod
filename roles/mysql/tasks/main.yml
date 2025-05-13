@@ -8,6 +8,12 @@
     name: mysql-server
     state: latest
 
+- name: Install Python MySQL dependency for Ansible
+  apt:
+    name: python3-pymysql
+    state: present
+  become: true
+
 - name: Ensure MySQL is running
   service:
     name: mysql
