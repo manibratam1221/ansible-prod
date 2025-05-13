@@ -24,7 +24,7 @@ jobs:
 
     - name: Run playbook
       run: |
-        ansible-playbook -i inventories/production/hosts roles/apache/tasks/main.yml \
+        ansible-playbook -i inventories/production/hosts playbooks/site.yml \
           --vault-password-file vault_pass.txt
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
