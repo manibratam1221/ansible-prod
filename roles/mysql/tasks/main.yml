@@ -1,0 +1,24 @@
+- name: Ensure system is up-to-date
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+- name: Install MySQL
+  apt:
+    name: mysql-server
+    state: latest
+
+- name: Ensure MySQL is running
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Secure MySQL Installation (set root password)
+  mysql_user:
+    login_user: root
+    login_password: ""
+    name: root
+    password: "{{ mysql_root_password }}"
+    host_all: yes
+    state: present

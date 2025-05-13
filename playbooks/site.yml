@@ -1,0 +1,11 @@
+- name: Deploy Apache to app servers
+  hosts: app_servers
+  become: true
+  roles:
+  - apache
+
+- name: Deploy MySQL to db server
+  hosts: db_server
+  become: true
+  roles:
+  - mysql
