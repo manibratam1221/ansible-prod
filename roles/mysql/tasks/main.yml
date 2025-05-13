@@ -19,6 +19,6 @@
     login_user: root
     login_password: ""
     name: root
-    password: "{{ mysql_root_password }}"
+    password: "{{ vault_mysql_root_password }}"
     host_all: yes
     state: present
