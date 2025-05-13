@@ -26,5 +26,8 @@
     login_password: ""
     name: root
     password: "{{ vault_mysql_root_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    check_implicit_admin: true
     host_all: yes
     state: present
+  become: true
