@@ -30,8 +30,6 @@
     plugin: mysql_native_password
     host_all: yes
     state: present
-    priv: '*.*:ALL,GRANT'
-    update_password: always
     #auth_plugin: mysql_native_password
   become: true
 
